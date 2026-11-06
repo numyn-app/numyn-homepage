@@ -38,3 +38,19 @@ form.addEventListener("submit", async (event) => {
     submit.disabled = false;
   }
 });
+
+const apiStatus = document.getElementById("api-status");
+async function checkFormsApi() {
+  apiStatus.textContent = "Checking…";
+  try {
+    const response = await fetch("https://api.numyn.ca/api/v1/health", {
+      cache: "no-store",
+      signal: AbortSignal.timeout(8000),
+    });
+    const health = await response.json();
+    apiStatus.textContent = response.ok && health.ok ? "Operational" : "Service degraded";
+  } catch {
+    apiStatus.textContent = "Couldn’t verify status";
+  }
+}
+checkFormsApi();

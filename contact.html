@@ -18,7 +18,7 @@
       <a href="services.html">Services</a>
       <a href="https://app.numyn.ca/">Bookkeeping</a>
       <a href="contact.html" aria-current="page">Contact</a>
-      <button class="button secondary" id="theme-toggle" type="button" hidden>Light mode</button>
+      <button class="button secondary" id="theme-toggle" type="button" aria-label="Switch to light mode" title="Switch to light mode" hidden><span aria-hidden="true">🌙</span></button>
     </nav>
   </div>
 </header>
@@ -27,6 +27,7 @@
     <p class="eyebrow">CONTACT</p>
     <h1 id="title">Tell us what you need</h1>
     <p>Share a bit about your project or the system you need help with. You can also email <a href="mailto:hello@numyn.ca">hello@numyn.ca</a>.</p>
+    <div class="contact-layout">
     <form id="contact-form" class="panel contact-form">
       <label for="name">Name</label>
       <input id="name" name="name" autocomplete="name" maxlength="255">
@@ -46,9 +47,15 @@
       <button class="button" type="submit" disabled>Send message</button>
       <p id="form-status" role="status"></p>
     </form>
+    <aside class="panel api-status" aria-labelledby="api-status-title">
+      <h2 id="api-status-title">Forms API</h2>
+      <p id="api-status" role="status">Status check unavailable.</p>
+      <p>If the form is unavailable, email <a href="mailto:hello@numyn.ca">hello@numyn.ca</a>.</p>
+    </aside>
+    </div>
   </section>
 </main>
-<footer><div class="wrap bar"><span>Numyn Software</span><span>Ontario, Canada</span></div></footer>
+<footer><div class="wrap bar"><span>Numyn Software</span><span>Ontario, Canada</span><a href="https://app.numyn.ca/privacy.html">Privacy Policy</a></div></footer>
 <script src="contact.js" defer></script>
 </body>
 </html>

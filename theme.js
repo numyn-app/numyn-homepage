@@ -10,7 +10,10 @@ try {
 document.addEventListener("DOMContentLoaded", () => {
   const toggle = document.getElementById("theme-toggle");
   const updateLabel = () => {
-    toggle.textContent = root.dataset.theme === "dark" ? "Light mode" : "Dark mode";
+    const dark = root.dataset.theme === "dark";
+    toggle.querySelector("span").textContent = dark ? "🌙" : "☀️";
+    toggle.title = dark ? "Switch to light mode" : "Switch to dark mode";
+    toggle.setAttribute("aria-label", toggle.title);
   };
 
   toggle.hidden = false;
