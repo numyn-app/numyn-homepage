@@ -87,8 +87,8 @@ button:disabled { cursor: wait; opacity: .65; }
   .contact-layout { grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); }
 }
 
-#api-history { display: flex; gap: .25rem; overflow-x: auto; }
-.api-blip { flex: 0 0 .5rem; height: 1rem; border-radius: .2rem; }
+#api-history { display: flex; gap: clamp(.08rem, .4vw, .25rem); }
+.api-blip { flex: 0 1 .5rem; min-width: 0; height: 1rem; border-radius: .2rem; }
 .api-blip[data-state="up"] { background: #34d399; }
 .api-blip[data-state="degraded"] { background: #fbbf24; }
 .api-blip[data-state="down"] { background: #fb7185; }
