@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en-CA" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Contact | Numyn Software</title>
+<meta name="description" content="Contact Numyn Software about custom development, IT support, or an ongoing maintenance agreement.">
+<link rel="icon" href="assets/favicon.ico">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap">
+<link rel="stylesheet" href="style.css">
+<script src="theme.js"></script>
+</head>
+<body>
+<header>
+  <div class="wrap bar">
+    <a class="brand" href="./"><img src="assets/numyn-logo.png" alt="" width="36" height="36"> Numyn Software</a>
+    <nav aria-label="Main navigation">
+      <a href="services.html">Services</a>
+      <a href="https://app.numyn.ca/">Bookkeeping</a>
+      <a href="contact.html" aria-current="page">Contact</a>
+      <button class="button secondary" id="theme-toggle" type="button" hidden>Light mode</button>
+    </nav>
+  </div>
+</header>
+<main class="wrap">
+  <section aria-labelledby="title">
+    <p class="eyebrow">CONTACT</p>
+    <h1 id="title">Tell us what you need</h1>
+    <p>Share a bit about your project or the system you need help with. You can also email <a href="mailto:hello@numyn.ca">hello@numyn.ca</a>.</p>
+    <form id="contact-form" class="panel contact-form">
+      <label for="name">Name</label>
+      <input id="name" name="name" autocomplete="name" maxlength="255">
+      <label for="email">Email</label>
+      <input id="email" name="email" type="email" autocomplete="email" maxlength="255" required>
+      <label for="subject">What can we help with?</label>
+      <select id="subject" name="subject">
+        <option value="General inquiry">General inquiry</option>
+        <option value="Custom software">Custom software</option>
+        <option value="IT support">IT support</option>
+        <option value="IT maintenance agreement">IT maintenance agreement</option>
+        <option value="Numyn Bookkeeping">Numyn Bookkeeping</option>
+      </select>
+      <label for="message">Message</label>
+      <textarea id="message" name="message" rows="6" required></textarea>
+      <noscript><p>Please email <a href="mailto:hello@numyn.ca">hello@numyn.ca</a> to get in touch.</p></noscript>
+      <button class="button" type="submit" disabled>Send message</button>
+      <p id="form-status" role="status"></p>
+    </form>
+  </section>
+</main>
+<footer><div class="wrap bar"><span>Numyn Software</span><span>Ontario, Canada</span></div></footer>
+<script src="contact.js" defer></script>
+</body>
+</html>

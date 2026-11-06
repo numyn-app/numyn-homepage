@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en-CA">
+<html lang="en-CA" data-theme="dark">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -8,15 +8,17 @@
 <link rel="icon" href="assets/favicon.ico">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap">
 <link rel="stylesheet" href="style.css">
+<script src="theme.js"></script>
 </head>
 <body>
 <header>
   <div class="wrap bar">
     <a class="brand" href="./"><img src="assets/numyn-logo.png" alt="" width="36" height="36"> Numyn Software</a>
     <nav aria-label="Main navigation">
-      <a href="#services">Services</a>
-      <a href="#bookkeeping">Bookkeeping</a>
-      <a href="#contact">Contact</a>
+      <a href="services.html">Services</a>
+      <a href="https://app.numyn.ca/">Bookkeeping</a>
+      <a href="contact.html">Contact</a>
+      <button class="button secondary" id="theme-toggle" type="button" hidden>Light mode</button>
     </nav>
   </div>
 </header>
@@ -25,7 +27,7 @@
     <p class="eyebrow">ONTARIO, CANADA</p>
     <h1 id="headline">Your business.<br>Your technology.<br><span>Your way.</span></h1>
     <p>Custom software, practical IT support, and bookkeeping tools for small businesses.</p>
-    <div class="actions"><a class="button" href="mailto:hello@numyn.ca">Tell us about your project</a><a class="button secondary" href="#services">Explore services</a></div>
+    <div class="actions"><a class="button" href="contact.html">Tell us about your project</a><a class="button secondary" href="services.html">Explore services</a></div>
   </section>
   <section id="services" aria-labelledby="services-title">
     <p class="eyebrow">SERVICES</p>
@@ -33,6 +35,7 @@
     <div class="cards">
       <article><h3>Custom software</h3><p>Build a website, web app, or internal tool around the way your business operates. Automate repetitive steps and connect tools you already use.</p></article>
       <article><h3>IT support</h3><p>Get help setting up websites, domains, and business email, troubleshooting technical issues, or planning your next upgrade.</p></article>
+      <article><h3>Ongoing IT maintenance</h3><p>Arrange regular updates, troubleshooting, and system administration under a service agreement.</p></article>
     </div>
   </section>
   <section id="bookkeeping" class="panel" aria-labelledby="product-title">
@@ -46,7 +49,7 @@
     <p class="eyebrow">CONTACT</p>
     <h2 id="contact-title">What are you working on?</h2>
     <p>Tell us what you want to build or where you could use a hand.</p>
-    <a class="button" href="mailto:hello@numyn.ca">hello@numyn.ca</a>
+    <a class="button" href="contact.html">Get in touch</a>
   </section>
 </main>
 <footer><div class="wrap bar"><span>Numyn Software</span><span>Ontario, Canada</span></div></footer>
