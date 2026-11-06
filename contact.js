@@ -52,7 +52,7 @@ function recordApiCheck(state) {
   } catch {
     // Display the current check even if stored history cannot be read.
   }
-  history = [...history, { status: state, t: Date.now() }].slice(-96);
+  history = [...history, { status: state, t: Date.now() }].slice(-22);
   try {
     localStorage.setItem(historyKey, JSON.stringify(history));
   } catch {
@@ -67,7 +67,6 @@ function recordApiCheck(state) {
     blip.setAttribute("aria-label", blip.title);
     return blip;
   }));
-  apiHistory.scrollLeft = apiHistory.scrollWidth;
   apiStatus.textContent = labels[state];
 }
 
