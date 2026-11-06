@@ -1,0 +1,47 @@
+:root {
+  color-scheme: dark;
+  --navy: #071b2f;
+  --panel: #0d2a46;
+  --gold: #f7b729;
+  --muted: #c7d5e4;
+  --border: #ffffff26;
+  font-family: Nunito, system-ui, sans-serif;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--navy); color: #f8fafc; line-height: 1.6; }
+a { color: inherit; }
+a:focus-visible { outline: 3px solid var(--gold); outline-offset: 4px; }
+header, footer { border-block: 1px solid var(--border); }
+.wrap { width: min(100% - 2.5rem, 65rem); margin-inline: auto; }
+.bar, nav, .brand, .actions { display: flex; align-items: center; flex-wrap: wrap; gap: 1rem; }
+.bar { justify-content: space-between; padding-block: .85rem; }
+.bar a { text-decoration: none; }
+nav a:hover { color: var(--gold); }
+.brand { font-weight: 800; gap: .6rem; }
+.brand img { border-radius: .55rem; }
+section { padding-block: 2.75rem; }
+.hero { position: relative; isolation: isolate; padding-block: clamp(3rem, 9vw, 7rem); }
+.hero::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background: url("assets/numyn-logo-transparent.png") right center / min(45vw, 28rem) no-repeat;
+  opacity: .09;
+}
+h1, h2, h3 { line-height: 1.12; margin: 0 0 .75rem; font-weight: 800; }
+h1 { font-size: clamp(2.75rem, 8vw, 5.5rem); letter-spacing: -.045em; }
+h2 { font-size: clamp(1.75rem, 4vw, 2.5rem); }
+h1 span, .eyebrow { color: var(--gold); }
+.eyebrow { font-size: .78rem; font-weight: 800; letter-spacing: .14em; }
+p, footer { color: var(--muted); }
+p { max-width: 58ch; }
+.hero > p:not(.eyebrow), .tagline { font-size: 1.2rem; }
+.actions { margin-top: 1.5rem; }
+.button { display: inline-block; border-radius: 999px; background: var(--gold); color: var(--navy); padding: .65rem 1.15rem; font-weight: 800; text-decoration: none; }
+.button:hover { background: #ffcc4d; }
+.secondary { background: transparent; border: 1px solid var(--border); color: inherit; }
+.secondary:hover { background: var(--panel); border-color: var(--gold); }
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr)); gap: 1rem; margin-top: 1.5rem; }
+article, .panel { border: 1px solid var(--border); background: var(--panel); border-radius: 1rem; padding: clamp(1.2rem, 4vw, 2rem); }
+article p { margin-bottom: 0; }
