@@ -86,3 +86,10 @@ button:disabled { cursor: wait; opacity: .65; }
 @media (min-width: 46rem) {
   .contact-layout { grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); }
 }
+
+#api-history { display: flex; gap: .25rem; overflow-x: auto; }
+.api-blip { flex: 0 0 .5rem; height: 1rem; border-radius: .2rem; }
+.api-blip[data-state="up"] { background: #34d399; }
+.api-blip[data-state="degraded"] { background: #fbbf24; }
+.api-blip[data-state="down"] { background: #fb7185; }
+.api-history-key { font-size: .8rem; }

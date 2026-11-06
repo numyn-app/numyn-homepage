@@ -40,6 +40,37 @@ form.addEventListener("submit", async (event) => {
 });
 
 const apiStatus = document.getElementById("api-status");
+const apiHistory = document.getElementById("api-history");
+const historyKey = "numyn-api-uptime-history";
+const labels = { up: "Operational", degraded: "Service degraded", down: "Couldn’t verify status" };
+
+function recordApiCheck(state) {
+  let history = [];
+  try {
+    const saved = JSON.parse(localStorage.getItem(historyKey) || "[]");
+    if (Array.isArray(saved)) history = saved.filter(sample => sample && Object.hasOwn(labels, sample.status));
+  } catch {
+    // Display the current check even if stored history cannot be read.
+  }
+  history = [...history, { status: state, t: Date.now() }].slice(-96);
+  try {
+    localStorage.setItem(historyKey, JSON.stringify(history));
+  } catch {
+    // The current page still shows the check.
+  }
+  apiHistory.replaceChildren(...history.map(sample => {
+    const blip = document.createElement("span");
+    blip.className = "api-blip";
+    blip.dataset.state = sample.status;
+    blip.title = labels[sample.status] + " · " + new Date(sample.t).toLocaleString();
+    blip.setAttribute("role", "img");
+    blip.setAttribute("aria-label", blip.title);
+    return blip;
+  }));
+  apiHistory.scrollLeft = apiHistory.scrollWidth;
+  apiStatus.textContent = labels[state];
+}
+
 async function checkFormsApi() {
   apiStatus.textContent = "Checking…";
   try {
@@ -48,9 +79,9 @@ async function checkFormsApi() {
       signal: AbortSignal.timeout(8000),
     });
     const health = await response.json();
-    apiStatus.textContent = response.ok && health.ok ? "Operational" : "Service degraded";
+    recordApiCheck(response.ok && health.ok ? "up" : "degraded");
   } catch {
-    apiStatus.textContent = "Couldn’t verify status";
+    recordApiCheck("down");
   }
 }
 checkFormsApi();
